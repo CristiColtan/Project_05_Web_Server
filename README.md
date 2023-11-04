@@ -14,3 +14,7 @@ Documentation: 🤔<br/>
 • https://youtu.be/Yt1nesKi5Ec?si=OJ6L4nbXP14237gc<br/> 
 • https://youtu.be/JhpUch6lWMw?si=fmISUZA0RPhvirGS<br/> 
 https://youtu.be/cEH_ipqHbUw?si=GDuwpwVAPXCmMCft
+https://github.com/infraredCoding/cerveur/tree/master
+https://github.com/JeffreytheCoder/Simple-HTTP-Server/tree/master
+https://dev.to/jeffreythecoder/how-i-built-a-simple-http-server-from-scratch-using-c-739
+https://www.w3schools.com/tags/ref_httpmethods.asp
