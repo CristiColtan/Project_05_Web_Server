@@ -9,3 +9,4 @@ Documentation: 🤔
 • https://youtu.be/9J1nJOivdyw?si=-K1GdJ4CQ8AXHAoE
 • https://stackoverflow.com/questions/3828352/what-is-a-mime-type ➡ (idee pentru implementare pdf viewer)
 • https://youtu.be/thJSev60yfg?si=Foixp5oJozJDNNNT
+https://youtu.be/Yt1nesKi5Ec?si=OJ6L4nbXP14237gc
