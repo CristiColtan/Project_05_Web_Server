@@ -18,3 +18,4 @@ https://github.com/infraredCoding/cerveur/tree/master
 https://github.com/JeffreytheCoder/Simple-HTTP-Server/tree/master
 https://dev.to/jeffreythecoder/how-i-built-a-simple-http-server-from-scratch-using-c-739
 https://www.w3schools.com/tags/ref_httpmethods.asp
+https://youtu.be/gk6NL1pZi1M?si=Uodc6ukyEMV5tY1I
