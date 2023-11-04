@@ -1,7 +1,9 @@
 Coltan Cristian-Gabriel & Sofronie Matei
 
 localhost:8080
-localhost:8080/test.txt
+localhost:8080/test.txt <br/>
+Client ->(GET)-> Server <br/>
+Client <-(RESPONSE)<- Server
 
     ➡ Here I will attach all the sources of inspiration, tutorials and code snippets that I have followed or used creating this project.
     
