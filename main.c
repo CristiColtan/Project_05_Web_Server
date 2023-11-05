@@ -160,6 +160,7 @@ char *response, size_t *response_len){
 }
 
 void *handle_client(void *arg){
+    //printf("Client connection accepted!");
     int client_fd = *((int*)arg);
     char *buffer = (char*)malloc(BUFFER_SIZE * sizeof(char));
 
@@ -224,11 +225,15 @@ int main(int argc, char* argv[]){
     server_addr.sin_addr.s_addr=INADDR_ANY;
     server_addr.sin_port=htons(8080);
 
+    //printf("Socket configured!\n");
+
     //Bind socket to port 8080.
     if (bind(server_fd, (struct sockaddr*)&server_addr,sizeof(server_addr)) < 0){
         perror ("Bind fail!");
         exit(EXIT_FAILURE);
     }
+
+    //printf("Socket bind successful!\n");
 
     //Listen
     if (listen(server_fd, 10) < 0){
@@ -248,6 +253,8 @@ int main(int argc, char* argv[]){
             perror("Accept failed!");
             continue;
         }
+
+        //printf("Client connection accepted!");
 
         //Create thread to handle client request
         pthread_t thread_id;
