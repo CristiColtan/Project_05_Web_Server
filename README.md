@@ -20,3 +20,5 @@ Documentation: 🤔<br/>
 • https://www.w3schools.com/tags/ref_httpmethods.asp<br/> 
 • https://youtu.be/gk6NL1pZi1M?si=Uodc6ukyEMV5tY1I<br/> 
 • https://youtu.be/esXw4bdaZkc?si=tf1Ds_IBo4y1-VcN<br/> 
+• https://www.tutorialspoint.com/c_standard_library/c_function_strrchr.htm ➡ (mime type htm)<br/> 
+• https://www.ibm.com/docs/en/i/7.2?topic=functions-strcasecmp-compare-strings-without-case-sensitivity<br/> 
