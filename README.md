@@ -22,3 +22,6 @@ Documentation: 🤔<br/>
 • https://youtu.be/esXw4bdaZkc?si=tf1Ds_IBo4y1-VcN<br/> 
 • https://www.tutorialspoint.com/c_standard_library/c_function_strrchr.htm ➡ (mime type htm)<br/> 
 • https://www.ibm.com/docs/en/i/7.2?topic=functions-strcasecmp-compare-strings-without-case-sensitivity<br/> 
+https://stackoverflow.com/questions/3554120/open-directory-using-c
+https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-opendir-open-directory
+https://www.w3schools.com/tags/ref_urlencode.asp?_sm_au_=iVVDMg0TSmrMV6Dm ➡ (decodificare URL)
