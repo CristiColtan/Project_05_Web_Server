@@ -3,10 +3,13 @@ Coltan Cristian-Gabriel & Sofronie Matei
 localhost:8080
 localhost:8080/test.txt <br/>
 Client ->(GET)-> Server <br/>
-Client <-(RESPONSE)<- Server
+Client <-(RESPONSE)<- Server<br/>
+<br/>
 
-    ➡ Here I will attach all the sources of inspiration, tutorials and code snippets that I have followed or used creating this project.
-    
+    ➡ Here I will attach all the sources of inspiration, tutorials and 
+    code snippets that I have followed or used creating this project. ⬅
+
+<br/>
 Documentation: 🤔<br/> 
 • https://youtu.be/9J1nJOivdyw?si=-K1GdJ4CQ8AXHAoE<br/> 
 • https://stackoverflow.com/questions/3828352/what-is-a-mime-type ➡ (idee pentru implementare pdf viewer)<br/> 
@@ -33,4 +36,21 @@ Documentation: 🤔<br/>
 • https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-recv-receive-data-socket<br/>
 • https://stackoverflow.com/questions/1085083/regular-expressions-in-c-examples<br/>
 • https://www.geeksforgeeks.org/regular-expressions-in-c/<br/>
-• https://www.gnu.org/software/libc/manual/html_node/Regexp-Subexpressions.html<br/>
+• https://www.gnu.org/software/libc/manual/html_node/Regexp-Subexpressions.html<br/><br/>
+
+           ➡ Pana  aici  am  invatat  ce  este  un  WEB  Server, cum se  conecteaza  un  client  la  un 
+           server  printr-o  pereche  de  sockets, cum  arata  un  HTTP  REQUEST  si  un  HTTP  RESPONSE. 
+           Am reusit sa parsez fisiere tip html, htm, jpg,  jpeg, png si txt folosind REQUEST tip GET. ⬅
+
+<br/>
+
+           ➡ In continuare vom incerca sa implementam si alte tip-uri de REQUEST-uri si sa parsam fisiere 
+           tip php, pdf, etc. ⬅
+
+<br/>
+
+Documentation continues: 🥳<br/>
+• https://stackoverflow.com/questions/54898131/how-to-serve-a-pdf-file-via-a-http-request<br/>
+• https://www.geeksforgeeks.org/what-is-php-and-why-we-use-it/<br/>
+
+    
