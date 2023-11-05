@@ -27,3 +27,8 @@ https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-opendir-open-directory
 https://www.w3schools.com/tags/ref_urlencode.asp?_sm_au_=iVVDMg0TSmrMV6Dm ➡ (decodificare URL)
 https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
 https://www.geeksforgeeks.org/snprintf-c-library/
+https://stackoverflow.com/questions/28288775/how-do-you-properly-use-the-fstat-function-and-what-are-its-limits
+https://www.tutorialspoint.com/c_standard_library/c_function_memcpy.htm
+https://stackoverflow.com/questions/15739490/should-i-use-size-t-or-ssize-t
+https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-recv-receive-data-socket
+https://stackoverflow.com/questions/1085083/regular-expressions-in-c-examples
