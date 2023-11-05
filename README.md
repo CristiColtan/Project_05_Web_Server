@@ -25,3 +25,5 @@ Documentation: 🤔<br/>
 https://stackoverflow.com/questions/3554120/open-directory-using-c
 https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-opendir-open-directory
 https://www.w3schools.com/tags/ref_urlencode.asp?_sm_au_=iVVDMg0TSmrMV6Dm ➡ (decodificare URL)
+https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
+https://www.geeksforgeeks.org/snprintf-c-library/
