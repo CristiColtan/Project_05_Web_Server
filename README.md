@@ -32,3 +32,4 @@ https://www.tutorialspoint.com/c_standard_library/c_function_memcpy.htm
 https://stackoverflow.com/questions/15739490/should-i-use-size-t-or-ssize-t
 https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-recv-receive-data-socket
 https://stackoverflow.com/questions/1085083/regular-expressions-in-c-examples
+https://www.geeksforgeeks.org/regular-expressions-in-c/
