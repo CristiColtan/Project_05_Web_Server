@@ -21,7 +21,8 @@
 #define BUFFER_SIZE (104857600)
 
 const char *get_file_extension(const char *filename){
-    const char *dot = strrchr(filename,'.');
+    const char *dot = strrchr(filename,'.'); 
+    //Ultima aparitie a caracterului "." (image.html)
     if(!dot || dot == filename){
         return "";
     }
@@ -29,15 +30,13 @@ const char *get_file_extension(const char *filename){
 }   //Gasim extensia
 
 const char *get_mime_type(const char *file_ext){
-    if (strcasecmp(file_ext,"html")==0 ||
-    strcasecmp(file_ext,"htm")==0){
+    if (strcasecmp(file_ext,"html")==0 || strcasecmp(file_ext,"htm")==0){
         return "text/html";
     }
     else if (strcasecmp(file_ext,"txt")==0){
         return "text/plain";
     }
-    else if (strcasecmp(file_ext,"jpg")==0 ||
-    strcasecmp(file_ext,"jpeg")==0){
+    else if (strcasecmp(file_ext,"jpg")==0 || strcasecmp(file_ext,"jpeg")==0){
         return "image/jpeg";
     }
     else if (strcasecmp(file_ext,"png")==0){
@@ -57,9 +56,10 @@ bool case_insensitive_compare(const char *s1, const char *s2){
         s2++;
     }
     return *s1 == *s2;
-}
+}   //NU NE TREBUIE MOMENTAN
 
 char *get_file_case_insensitive(const char *file_name){
+    //https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-opendir-open-directory
     DIR *dir = opendir(".");
     if (dir == NULL){
         perror("opendir");
@@ -77,7 +77,7 @@ char *get_file_case_insensitive(const char *file_name){
     
     closedir(dir);
     return found_file_name;
-}
+}   //NU NE TREBUIE MOMENTAN
 
 char *url_decode(const char *src){
     size_t src_len = strlen(src);
@@ -89,6 +89,7 @@ char *url_decode(const char *src){
         if (src[i] == '%' && i + 2 < src_len){
             int hex_val;
             sscanf(src+i+1, "%2x", &hex_val);
+            //Citim 2 caractere hexa
             decoded[decoded_len++]=hex_val;
             //decoded_len++;
             i+=2;
@@ -116,15 +117,31 @@ char *response, size_t *response_len){
     int file_fd = open(file_name, O_RDONLY);
     if(file_fd == -1){
         snprintf(response, BUFFER_SIZE,"HTTP/1.1 404 Not Found\r\n"
-                                       "Content-Type: text/plain\r\n"
+                                       "Content-Type: text/html\r\n"
                                        "\r\n"
-                                       "404 Not Found");
+                                       "<!DOCTYPE html>\r\n"
+                                       "<html lang=\"en\">\r\n"
+                                       "<head>\r\n"
+                                       "<meta charset=\"UTF-8\">\r\n"
+                    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n"
+                                       "<title>NOT FOUND</title>\r\n"
+                                       "</head>\r\n"
+                                       "<body>\r\n"
+                                       "<h1>ERROR 404 !!!</h1>\r\n"
+                                       "<h1>NOT FOUND :(</h1>\r\n"
+                                       "<img src=\"error.jpg\" alt=\"Error Image\"/>\r\n"
+                                       "</body>\r\n"
+                                       "</html>\r\n");
         *response_len = strlen(response);
         return;
     }
+
     //Aflam file size-ul
     struct stat file_stat;
-    fstat(file_fd, &file_stat);
+    if(fstat(file_fd, &file_stat)){
+        perror("Bad call!");
+        exit(EXIT_FAILURE);
+    }
     off_t file_size = file_stat.st_size;
 
     //Copiem header-ul la raspuns
@@ -152,6 +169,8 @@ void *handle_client(void *arg){
     //Verificam daca avem GET
         regex_t regex;
         regcomp(&regex, "^GET /([^ ]*) HTTP/1", REG_EXTENDED);
+        //Expresie regulata
+        // /([^ ]*) calea catre un file din folder-ul meu
         regmatch_t matches[2];
 
         if(regexec(&regex, buffer, 2, matches, 0)==0){
@@ -183,6 +202,8 @@ void *handle_client(void *arg){
     return NULL;
 }
 
+//SETUP <><><><><><><><><><><><><><><><><><><><><><><><> //
+//Folosim perror (good practice <3)
 int main(int argc, char* argv[]){
     int server_fd;
     struct sockaddr_in server_addr;
@@ -192,7 +213,7 @@ int main(int argc, char* argv[]){
 //SOCK_STREAM -> TCP (garanteaza livrarea);
 //INADDR_ANY -> Orice conexiune e acceptata.
 
-    if((server_fd= socket(AF_INET, SOCK_STREAM,0)) < 0){
+    if((server_fd= socket(AF_INET, SOCK_STREAM, 0)) < 0){
         perror("Socket fail!");
         exit(EXIT_FAILURE);
     }//Daca avem valoarea 0 se alege un protocol automat.
@@ -230,8 +251,10 @@ int main(int argc, char* argv[]){
 
         //Create thread to handle client request
         pthread_t thread_id;
+
         //TO DO:
         pthread_create(&thread_id, NULL, handle_client, (void*)client_fd);
+        //Functia cere void* ==> void *handle_client()
         pthread_detach(thread_id);
     }
 
