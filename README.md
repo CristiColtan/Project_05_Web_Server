@@ -22,15 +22,15 @@ Documentation: 🤔<br/>
 • https://youtu.be/esXw4bdaZkc?si=tf1Ds_IBo4y1-VcN<br/> 
 • https://www.tutorialspoint.com/c_standard_library/c_function_strrchr.htm ➡ (mime type htm)<br/> 
 • https://www.ibm.com/docs/en/i/7.2?topic=functions-strcasecmp-compare-strings-without-case-sensitivity<br/> 
-https://stackoverflow.com/questions/3554120/open-directory-using-c
-https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-opendir-open-directory
-https://www.w3schools.com/tags/ref_urlencode.asp?_sm_au_=iVVDMg0TSmrMV6Dm ➡ (decodificare URL)
-https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
-https://www.geeksforgeeks.org/snprintf-c-library/
-https://stackoverflow.com/questions/28288775/how-do-you-properly-use-the-fstat-function-and-what-are-its-limits
-https://www.tutorialspoint.com/c_standard_library/c_function_memcpy.htm
-https://stackoverflow.com/questions/15739490/should-i-use-size-t-or-ssize-t
-https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-recv-receive-data-socket
-https://stackoverflow.com/questions/1085083/regular-expressions-in-c-examples
-https://www.geeksforgeeks.org/regular-expressions-in-c/
-https://www.gnu.org/software/libc/manual/html_node/Regexp-Subexpressions.html
+• https://stackoverflow.com/questions/3554120/open-directory-using-c<br/>
+• https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-opendir-open-directory<br/>
+• https://www.w3schools.com/tags/ref_urlencode.asp?_sm_au_=iVVDMg0TSmrMV6Dm ➡ (decodificare URL)<br/>
+• https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm<br/>
+• https://www.geeksforgeeks.org/snprintf-c-library/<br/>
+• https://stackoverflow.com/questions/28288775/how-do-you-properly-use-the-fstat-function-and-what-are-its-limits<br/>
+• https://www.tutorialspoint.com/c_standard_library/c_function_memcpy.htm<br/>
+• https://stackoverflow.com/questions/15739490/should-i-use-size-t-or-ssize-t<br/>
+• https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-recv-receive-data-socket<br/>
+• https://stackoverflow.com/questions/1085083/regular-expressions-in-c-examples<br/>
+• https://www.geeksforgeeks.org/regular-expressions-in-c/<br/>
+• https://www.gnu.org/software/libc/manual/html_node/Regexp-Subexpressions.html<br/>
