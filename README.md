@@ -52,5 +52,6 @@ Documentation: 🤔<br/>
 Documentation continues: 🥳<br/>
 • https://stackoverflow.com/questions/54898131/how-to-serve-a-pdf-file-via-a-http-request<br/>
 • https://www.geeksforgeeks.org/what-is-php-and-why-we-use-it/<br/>
-
+• https://www.lifewire.com/cfg-config-files-4157662<br/>
+• https://developer.mozilla.org/en-US/docs/Web/HTTP/Status<br/>
     
