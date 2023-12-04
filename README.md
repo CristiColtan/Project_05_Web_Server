@@ -6,8 +6,8 @@ Client ->(GET)-> Server <br/>
 Client <-(RESPONSE)<- Server<br/>
 <br/>
 
-    ➡ Here I will attach all the sources of inspiration, tutorials and 
-    code snippets that I have followed or used creating this project. ⬅
+            ➡ Here I will attach all the sources of inspiration, tutorials and 
+            code snippets that I have followed or used creating this project. ⬅
 
 <br/>
 Documentation: 🤔<br/> 
