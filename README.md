@@ -1,7 +1,6 @@
 Coltan Cristian-Gabriel & Sofronie Matei
 
-localhost:8080
-localhost:8080/test.txt <br/>
+localhost:8080/ <br/>
 Client ->(GET)-> Server <br/>
 Client <-(RESPONSE)<- Server<br/>
 <br/>
