@@ -53,8 +53,10 @@ Documentation continues: 🥳<br/>
 • https://www.geeksforgeeks.org/what-is-php-and-why-we-use-it/<br/>
 • https://www.lifewire.com/cfg-config-files-4157662<br/>
 • https://developer.mozilla.org/en-US/docs/Web/HTTP/Status<br/>
-https://www.baeldung.com/java-http-request
-https://www.tutorialspoint.com/http/http_requests.htm
-https://stackoverflow.com/questions/541430/how-do-i-read-any-request-header-in-php
-https://github.com/bloominstituteoftechnology/C-Web-Server/tree/master
+• https://www.baeldung.com/java-http-request<br/>
+• https://www.tutorialspoint.com/http/http_requests.htm<br/>
+• https://stackoverflow.com/questions/541430/how-do-i-read-any-request-header-in-php<br/>
+• https://github.com/bloominstituteoftechnology/C-Web-Server/tree/master<br/>
+• https://stackoverflow.com/questions/10451992/how-should-a-thread-pool-be-implemented-in-c<br/>
+
     
