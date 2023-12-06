@@ -3,6 +3,42 @@
 // https://github.com/JeffreytheCoder/Simple-HTTP-Server/tree/master
 // https://dev.to/jeffreythecoder/how-i-built-a-simple-http-server-from-scratch-using-c-739
 
+int login(const char *username, const char *password)
+{
+    int ok = 0, i, n;
+    char useru[30], pasu[30];
+
+    FILE *credentials = fopen(CREDENTIALS_FILE, "r");
+    if (credentials == NULL)
+    {
+        perror("Eroare open credentials file!");
+        exit(EXIT_FAILURE);
+    }
+
+    char v_u[10][30];
+    char v_p[10][30];
+
+    fscanf(credentials, "%d", &n);
+    for (i = 0; i < n; i++)
+    {
+        fscanf(credentials, "%s %s", useru, pasu);
+        strcpy(v_u[i], useru);
+        strcpy(v_p[i], pasu);
+    }
+
+    fclose(credentials);
+
+    for (i = 0; i < n; i++)
+    {
+        if (strcmp(username, v_u[i]) == 0 && strcmp(password, v_p[i]) == 0)
+        {
+            ok = 1;
+        }
+    }
+
+    return ok;
+}
+
 const char *get_file_extension(const char *filename)
 {
     const char *dot = strrchr(filename, '.');

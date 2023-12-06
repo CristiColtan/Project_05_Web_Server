@@ -30,10 +30,10 @@
 #define OTHER "application/octet-stream"
 
 #define CONFIG_FILE "config.txt"
+#define CREDENTIALS_FILE "credentials.txt"
 #define ERROR_FILE "error.html"
 #define ERROR_HEADER ""
-
-int thread_number = 0;
+#define REGG "^GET /([^ ]*) HTTP/1"
 
 const char *get_file_extension(const char *filename);
 
@@ -45,5 +45,7 @@ void build_http_response(const char *file_name, const char *file_ext,
                          char *response, size_t *response_len);
 
 void *handle_client(void *arg);
+
+int login(const char *username, const char *password);
 
 #endif

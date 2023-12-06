@@ -1,11 +1,14 @@
 #include "header.h"
 
+int thread_number = 0;
+
 // SETUP <><><><><><><><><><><><><><><><><><><><><><><><> //
 // Folosim perror (good practice <3)
 int main(int argc, char *argv[])
 // https://youtu.be/gk6NL1pZi1M?si=8-WP40uOXXblo1GA
 // https://youtu.be/cEH_ipqHbUw?si=5epmWXYcK2o0zBoN
 {
+    printf("Welcome!\n");
     // Open config file;
     FILE *config_file;
     config_file = fopen(CONFIG_FILE, "r");
@@ -18,10 +21,29 @@ int main(int argc, char *argv[])
     }
 
     fscanf(config_file, "%d", &thread_number);
-
     fclose(config_file);
     // printf("THREADS: %d\n", thread_number);
 
+    printf("App configured successful!\n");
+
+    char user[30];
+    char pass[30];
+    printf("Username: ");
+    scanf("%s", user);
+    printf("Password: ");
+    scanf("%s", pass);
+
+    int ok = login(user, pass);
+    if (ok == 1)
+    {
+        printf("Login succesful!\n");
+    }
+    else
+    {
+        printf("Access denied!");
+        return 1;
+    }
+    return 0;
     // <><><>
 
     int server_fd;
