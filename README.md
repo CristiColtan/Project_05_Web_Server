@@ -47,9 +47,6 @@ Documentation: 🤔<br/>
            tip php, pdf, etc. ⬅
 
 <br/>
-
-• <br/>
-
 Documentation continues: 🥳<br/>
 • https://stackoverflow.com/questions/54898131/how-to-serve-a-pdf-file-via-a-http-request<br/>
 • https://www.geeksforgeeks.org/what-is-php-and-why-we-use-it/<br/>
