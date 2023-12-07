@@ -61,7 +61,7 @@ Documentation continues: 🥳<br/>
 • https://github.com/bloominstituteoftechnology/C-Web-Server/tree/master<br/>
 • https://stackoverflow.com/questions/10451992/how-should-a-thread-pool-be-implemented-in-c<br/>
 • https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses<br/>
-• <br/>
+• https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods<br/>
 • <br/>
 • <br/>
 • <br/>
