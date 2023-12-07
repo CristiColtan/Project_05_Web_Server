@@ -48,6 +48,8 @@ Documentation: 🤔<br/>
 
 <br/>
 
+• <br/>
+
 Documentation continues: 🥳<br/>
 • https://stackoverflow.com/questions/54898131/how-to-serve-a-pdf-file-via-a-http-request<br/>
 • https://www.geeksforgeeks.org/what-is-php-and-why-we-use-it/<br/>
@@ -58,5 +60,11 @@ Documentation continues: 🥳<br/>
 • https://stackoverflow.com/questions/541430/how-do-i-read-any-request-header-in-php<br/>
 • https://github.com/bloominstituteoftechnology/C-Web-Server/tree/master<br/>
 • https://stackoverflow.com/questions/10451992/how-should-a-thread-pool-be-implemented-in-c<br/>
+• https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses<br/>
+• <br/>
+• <br/>
+• <br/>
+• <br/>
+• <br/>
 
     
