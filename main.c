@@ -43,6 +43,8 @@ int main(int argc, char *argv[])
         printf("Access denied!");
         return 1;
     }
+    ////////////////////!!!/////////////////
+    // NU UITA SA SCOTI RETURN 0
     return 0;
     // <><><>
 

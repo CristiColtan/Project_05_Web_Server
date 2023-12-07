@@ -35,6 +35,17 @@
 #define ERROR_HEADER ""
 #define REGG "^GET /([^ ]*) HTTP/1"
 
+// HTTP RESPONSES
+#define HTTP_CONTINUE "HTTP/1.1 100 Continue"
+#define HTTP_OK "HTTP/1.1 200 OK"
+#define HTTP_BAD_REQUEST "HTTP/1.1 400 Bad Request"
+#define HTTP_NOT_FOUND "HTTP/1.1 404 Not Found"
+#define HTTP_LARGE_PAYLOAD "HTTP/1.1 413 Payload Too Large"
+#define HTTP_LONG_URI "HTTP/1.1 414 URI Too Long"
+#define HTTP_MEDIA "HTTP/1.1 415 Unsupported Media Type"
+#define HTTP_JOKE "HTTP/1.1 418 I'm a Teapot"
+//
+
 const char *get_file_extension(const char *filename);
 
 const char *get_mime_type(const char *file_ext);
