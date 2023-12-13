@@ -35,6 +35,13 @@
 #define ERROR_HEADER ""
 #define REGG "^GET /([^ ]*) HTTP/1"
 
+// THREADPOOL
+typedef struct
+{
+    void (*task_function)(int);
+    int client_fd;
+} Task;
+
 // HTTP RESPONSES
 #define HTTP_CONTINUE "HTTP/1.1 100 Continue"
 #define HTTP_OK "HTTP/1.1 200 OK"
@@ -46,6 +53,7 @@
 #define HTTP_JOKE "HTTP/1.1 418 I'm a Teapot"
 //
 
+// SERVER
 const char *get_file_extension(const char *filename);
 
 const char *get_mime_type(const char *file_ext);
@@ -59,4 +67,14 @@ void *handle_client(void *arg);
 
 int login(const char *username, const char *password);
 
+// THREADS
+void initialize_thread_pool(size_t thread_count);
+
+void destroy_thread_pool();
+
+void submit_task(void *(*function)(void *), void *argument);
+
+void *thread_function(void *arg);
+
+void add_task_to_thread_pool(Task *task);
 #endif
