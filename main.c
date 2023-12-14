@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     } // Ascultam maxim 10 in acelasi timp.
 
+    size_t total_clients = 0;
     printf("Listening on port 8080\n");
     while (1)
     { // Ascultam la infinit pentru noi clienti

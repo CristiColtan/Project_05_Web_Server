@@ -2,6 +2,7 @@
 #define HEADER_H
 
 #define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,12 +28,14 @@
 #define PLAIN "text/plain"
 #define JPEG "image/jpeg"
 #define PNG "image/png"
+#define PHP "text/html"
+#define JAVA "text/html"
 #define OTHER "application/octet-stream"
 
 #define CONFIG_FILE "config.txt"
 #define CREDENTIALS_FILE "credentials.txt"
 #define ERROR_FILE "error.html"
-#define ERROR_HEADER ""
+#define ERROR_HEADER "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n"
 #define REGG "^GET /([^ ]*) HTTP/1"
 
 // THREADPOOL
@@ -77,4 +80,14 @@ void submit_task(void *(*function)(void *), void *argument);
 void *thread_function(void *arg);
 
 void add_task_to_thread_pool(Task *task);
+
+// OTHERS
+void interpretPHP(const char *file_name);
+
+void interpretJAVA(const char *file_name);
+
+void build_http_error(const char *file_name, char *response, size_t *response_len);
+
+void build_http_ok(const char *file_name, const char *file_ext, char *response, size_t *response_len);
+
 #endif

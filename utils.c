@@ -71,9 +71,19 @@ const char *get_mime_type(const char *file_ext)
     {
         return PNG;
     }
+    else if (strcasecmp(file_ext, "php") == 0)
+    {
+        return PHP;
+    }
+    else if (strcasecmp(file_ext, "js") == 0)
+    {
+        return JAVA;
+    }
     else
     {
         return OTHER;
+        // Nu stie cum sa interpreteze si download-eaza fisier-ul
+        // Feature folosit la multe servere
     }
 } // Gasim tipul extensiei
 
@@ -106,55 +116,21 @@ char *url_decode(const char *src)
     return decoded;
 }
 
-void build_http_response(const char *file_name, const char *file_ext,
-                         char *response, size_t *response_len)
+void build_http_ok(const char *file_name, const char *file_ext, char *response, size_t *response_len)
 {
-    // Cream header-ul HTTP
-    const char *mime_type = get_mime_type(file_ext);
     char *header = (char *)malloc(BUFFER_SIZE * sizeof(char));
-    char *header_err = (char *)malloc(BUFFER_SIZE * sizeof(char));
+    const char *mime_type = get_mime_type(file_ext);
 
     snprintf(header, BUFFER_SIZE, "HTTP/1.1 200 OK\r\n"
                                   "Content-Type: %s\r\n"
                                   "\r\n",
              mime_type);
 
-    // Daca fisierul nu exista, avem 404 Not Found
     int file_fd = open(file_name, O_RDONLY);
     if (file_fd == -1)
     {
-        snprintf(header_err, BUFFER_SIZE, "HTTP/1.1 404 Not Found\r\n"
-                                          "Content-Type: text/html\r\n"
-                                          "\r\n");
-
-        int file_fd_err = open(ERROR_FILE, O_RDONLY);
-        if (file_fd_err == -1)
-        {
-            perror("Open failed!");
-            exit(EXIT_FAILURE);
-        }
-
-        struct stat file_err_stat;
-        if (fstat(file_fd_err, &file_err_stat))
-        {
-            perror("Bad call!");
-            exit(EXIT_FAILURE);
-        }
-        off_t file_err_size = file_err_stat.st_size;
-
-        *response_len = 0;
-        memcpy(response, header_err, strlen(header_err));
-        *response_len += strlen(header_err);
-
-        ssize_t bytes_err_read;
-        while ((bytes_err_read = read(file_fd_err, response + *response_len, BUFFER_SIZE - *response_len)) > 0)
-        {
-            *response_len += bytes_err_read;
-        }
-
-        free(header_err);
-        close(file_fd_err);
-        return;
+        perror("Open failed!");
+        exit(EXIT_FAILURE);
     }
 
     // Aflam file size-ul
@@ -181,6 +157,66 @@ void build_http_response(const char *file_name, const char *file_ext,
     close(file_fd);
 }
 
+void build_http_error(const char *file_name, char *response, size_t *response_len)
+{
+    char *header_err = (char *)malloc(BUFFER_SIZE * sizeof(char));
+
+    snprintf(header_err, BUFFER_SIZE, ERROR_HEADER);
+
+    int file_fd_err = open(ERROR_FILE, O_RDONLY);
+    if (file_fd_err == -1)
+    {
+        perror("Open failed!");
+        exit(EXIT_FAILURE);
+    }
+
+    struct stat file_err_stat;
+    if (fstat(file_fd_err, &file_err_stat))
+    {
+        perror("Bad call!");
+        exit(EXIT_FAILURE);
+    }
+    off_t file_err_size = file_err_stat.st_size;
+
+    *response_len = 0;
+    memcpy(response, header_err, strlen(header_err));
+    *response_len += strlen(header_err);
+
+    ssize_t bytes_err_read;
+    while ((bytes_err_read = read(file_fd_err, response + *response_len, BUFFER_SIZE - *response_len)) > 0)
+    {
+        *response_len += bytes_err_read;
+    }
+
+    free(header_err);
+    close(file_fd_err);
+}
+
+void build_http_response(const char *file_name, const char *file_ext,
+                         char *response, size_t *response_len)
+{
+    // Daca fisierul nu exista, avem 404 Not Found
+    int file_fd = open(file_name, O_RDONLY);
+    if (file_fd == -1)
+    {
+        build_http_error(file_name, response, response_len);
+        return;
+    }
+
+    // Cream header-ul HTTP
+    if (strcmp(file_ext, "php") == 0)
+    {
+        build_http_ok("test.php", file_ext, response, response_len);
+        return;
+    }
+    if (strcmp(file_ext, "js") == 0)
+    {
+        build_http_ok("testjava.txt", "txt", response, response_len);
+        return;
+    }
+    build_http_ok(file_name, file_ext, response, response_len);
+}
+
 void *handle_client(void *arg)
 {
     Task *task = (Task *)arg;
@@ -188,7 +224,6 @@ void *handle_client(void *arg)
     free(task);
 
     // printf("Client connection accepted!");
-    // int client_fd = *((int *)arg);
     char *buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
 
     // Primim request-ul de la client si il stocam in buffer
@@ -197,19 +232,24 @@ void *handle_client(void *arg)
     {
         // printf("BUFFER PRIMIT: %s\n", buffer);
 
-        // Verificam daca avem GET
-        regex_t regex;
-        regcomp(&regex, "^GET /([^ ]*) HTTP/1", REG_EXTENDED);
+        // Verificam daca avem GET / POST / PUT
+        regex_t regex_get, regex_post, regex_put;
+        regcomp(&regex_get, "^GET /([^ ]*) HTTP/1", REG_EXTENDED);
+        regcomp(&regex_post, "^POST /([^ ]*) HTTP/1", REG_EXTENDED);
+        regcomp(&regex_put, "^PUT /([^ ]*) HTTP/1", REG_EXTENDED);
+
         // Expresie regulata
         //  /([^ ]*) calea catre un file din folder-ul meu
-        regmatch_t matches[2];
+        regmatch_t get_matches[2],
+            post_matches[2],
+            put_matches[2];
 
-        if (regexec(&regex, buffer, 2, matches, 0) == 0)
+        if (regexec(&regex_get, buffer, 2, get_matches, 0) == 0)
         {
             // Scoatem filename si decodam URL
-            buffer[matches[1].rm_eo] = '\0';
+            buffer[get_matches[1].rm_eo] = '\0';
             // printf("BUFFER DUPA SET EOF: %s\n", buffer);
-            const char *url_encoded_file_name = buffer + matches[1].rm_so;
+            const char *url_encoded_file_name = buffer + get_matches[1].rm_so;
             // printf("URL ENCODED: %s\n", url_encoded_file_name);
             char *file_name = url_decode(url_encoded_file_name);
             // printf("FILENAME: %s\n", file_name);
@@ -218,6 +258,23 @@ void *handle_client(void *arg)
             char file_ext[32];
             strcpy(file_ext, get_file_extension(file_name));
             // printf("FILE EXTENSION: %s\n", file_ext);
+
+            // char *response = (char *)malloc(BUFFER_SIZE * 2 * sizeof(char));
+            // size_t response_len;
+
+            if (strcmp(file_ext, "php") == 0)
+            {
+                printf("\nPHP FILE! Interpreting it!...\n");
+                interpretPHP(file_name);
+            }
+
+            printf("\nExtensie: %s", file_ext);
+
+            if (strcmp(file_ext, "js") == 0)
+            {
+                printf("\nJAVASCRIPT FILE! Interpreting it!...\n");
+                interpretJAVA(file_name);
+            }
 
             // Construim raspunsul HTTP
             char *response = (char *)malloc(BUFFER_SIZE * 2 * sizeof(char));
@@ -232,7 +289,12 @@ void *handle_client(void *arg)
             free(file_name);
         }
 
-        regfree(&regex);
+        // if (regexec(&regex_post, buffer, 2, post_matches, 0) == 0){}
+        // if (regexec(&regex_putt, buffer, 2, put_matches, 0) == 0)
+
+        regfree(&regex_get);
+        regfree(&regex_post);
+        regfree(&regex_put);
     }
 
     close(client_fd);
