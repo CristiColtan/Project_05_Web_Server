@@ -11,7 +11,7 @@ Client <-(RESPONSE)<- Server<br/>
 <br/>
 Documentation: 🤔<br/> 
 • https://youtu.be/9J1nJOivdyw?si=-K1GdJ4CQ8AXHAoE<br/> 
-• https://stackoverflow.com/questions/3828352/what-is-a-mime-type ➡ (idee pentru implementare pdf viewer)<br/> 
+• https://stackoverflow.com/questions/3828352/what-is-a-mime-type<br/>
 • https://youtu.be/thJSev60yfg?si=Foixp5oJozJDNNNT<br/> 
 • https://youtu.be/Yt1nesKi5Ec?si=OJ6L4nbXP14237gc<br/> 
 • https://youtu.be/JhpUch6lWMw?si=fmISUZA0RPhvirGS<br/> 
@@ -22,11 +22,11 @@ Documentation: 🤔<br/>
 • https://www.w3schools.com/tags/ref_httpmethods.asp<br/> 
 • https://youtu.be/gk6NL1pZi1M?si=Uodc6ukyEMV5tY1I<br/> 
 • https://youtu.be/esXw4bdaZkc?si=tf1Ds_IBo4y1-VcN<br/> 
-• https://www.tutorialspoint.com/c_standard_library/c_function_strrchr.htm ➡ (mime type htm)<br/> 
+• https://www.tutorialspoint.com/c_standard_library/c_function_strrchr.htm<br/> 
 • https://www.ibm.com/docs/en/i/7.2?topic=functions-strcasecmp-compare-strings-without-case-sensitivity<br/> 
 • https://stackoverflow.com/questions/3554120/open-directory-using-c<br/>
 • https://www.ibm.com/docs/en/zos/2.4.0?topic=functions-opendir-open-directory<br/>
-• https://www.w3schools.com/tags/ref_urlencode.asp?_sm_au_=iVVDMg0TSmrMV6Dm ➡ (decodificare URL)<br/>
+• https://www.w3schools.com/tags/ref_urlencode.asp?_sm_au_=iVVDMg0TSmrMV6Dm<br/>
 • https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm<br/>
 • https://www.geeksforgeeks.org/snprintf-c-library/<br/>
 • https://stackoverflow.com/questions/28288775/how-do-you-properly-use-the-fstat-function-and-what-are-its-limits<br/>
