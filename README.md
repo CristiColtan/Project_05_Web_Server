@@ -59,8 +59,8 @@ Documentation continues: 🥳<br/>
 • https://stackoverflow.com/questions/10451992/how-should-a-thread-pool-be-implemented-in-c<br/>
 • https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses<br/>
 • https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods<br/>
-• <br/>
-• <br/>
+• https://stackoverflow.com/questions/22853669/how-can-i-run-a-php-script-inside-a-html-file<br/>
+• https://stillat.com/blog/2014/04/02/how-does-php-work-with-the-web-server-and-browser/<br/>
 • <br/>
 • <br/>
 
