@@ -102,6 +102,8 @@ int main(int argc, char *argv[])
 
         // printf("Client connection accepted!");
 
+        total_clients++;
+
         Task *task = malloc(sizeof(Task));
         if (task == NULL)
         {
@@ -114,6 +116,14 @@ int main(int argc, char *argv[])
         // Create thread to handle client request
         add_task_to_thread_pool(task);
         // Functia cere void* ==> void *handle_client()
+
+        if (total_clients % 10 == 0)
+        {
+            // Distrugere pool-ul actual
+            destroy_thread_pool();
+            // Initializare pool nou
+            initialize_thread_pool(thread_number);
+        }
     }
 
     destroy_thread_pool();
