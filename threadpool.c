@@ -1,6 +1,8 @@
 // Matew
 
 #include "header.h"
+// https://github.com/Pithikos/C-Thread-Pool
+// https://github.com/mbrossard/threadpool
 
 // Structura care reprezintă o sarcină pentru thread-ul din pool
 typedef struct
