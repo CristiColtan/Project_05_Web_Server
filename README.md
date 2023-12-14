@@ -61,11 +61,11 @@ Documentation continues: 🥳<br/>
 • https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods<br/>
 • https://stackoverflow.com/questions/22853669/how-can-i-run-a-php-script-inside-a-html-file<br/>
 • https://stillat.com/blog/2014/04/02/how-does-php-work-with-the-web-server-and-browser/<br/>
-• <br/>
-• <br/>
-• <br/>
-• <br/>
-• <br/>
+• https://github.com/Pithikos/C-Thread-Pool<br/>
+• https://github.com/mbrossard/threadpool<br/>
+• https://youtu.be/WmDOHh7k0Ag?si=KyPYTaivcSEUgQre<br/>
+• https://docs.oracle.com/cd/E19120-01/open.solaris/816-5137/ggedd/index.html<br/>
+• https://code-vault.net/lesson/j62v2novkv:1609958966824<br/>
 • <br/>
 • <br/>
 • <br/>
