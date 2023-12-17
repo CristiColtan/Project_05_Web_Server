@@ -90,4 +90,7 @@ void build_http_error(const char *file_name, char *response, size_t *response_le
 
 void build_http_ok(const char *file_name, const char *file_ext, char *response, size_t *response_len);
 
+void process_post_request(const char *buffer);
+
+void process_put_request(const char *buffer);
 #endif

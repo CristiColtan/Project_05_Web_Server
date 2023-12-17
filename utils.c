@@ -289,8 +289,16 @@ void *handle_client(void *arg)
             free(file_name);
         }
 
-        // if (regexec(&regex_post, buffer, 2, post_matches, 0) == 0){}
-        // if (regexec(&regex_putt, buffer, 2, put_matches, 0) == 0)
+        else if (regexec(&regex_post, buffer, 2, post_matches, 0) == 0)
+        {
+            // Cerere POST
+            process_post_request(buffer);
+        }
+        else if (regexec(&regex_put, buffer, 2, put_matches, 0) == 0)
+        {
+            // Cerere PUT
+            process_put_request(buffer);
+        }
 
         regfree(&regex_get);
         regfree(&regex_post);
@@ -304,4 +312,28 @@ void *handle_client(void *arg)
     free(buffer);
 
     return NULL;
+}
+
+void process_post_request(const char *buffer)
+{
+    // Găsește începutul datelor POST în buffer
+    const char *post_data_start = strstr(buffer, "\r\n\r\n");
+    if (post_data_start != NULL)
+    {
+        post_data_start += 4;
+
+        printf("Data POST primită:\n%s\n", post_data_start);
+    }
+}
+
+void process_put_request(const char *buffer)
+{
+    // Găsește începutul datelor PUT în buffer
+    const char *put_data_start = strstr(buffer, "\r\n\r\n");
+    if (put_data_start != NULL)
+    {
+        put_data_start += 4;
+
+        printf("Data PUT primită:\n%s\n", put_data_start);
+    }
 }
