@@ -223,14 +223,12 @@ void *handle_client(void *arg)
     int client_fd = task->client_fd;
     free(task);
 
-    // printf("Client connection accepted!");
     char *buffer = (char *)malloc(BUFFER_SIZE * sizeof(char));
 
     // Primim request-ul de la client si il stocam in buffer
     ssize_t bytes_received = recv(client_fd, buffer, BUFFER_SIZE, 0);
     if (bytes_received > 0)
     {
-        // printf("BUFFER PRIMIT: %s\n", buffer);
 
         // Verificam daca avem GET / POST / PUT
         regex_t regex_get, regex_post, regex_put;
@@ -248,19 +246,14 @@ void *handle_client(void *arg)
         {
             // Scoatem filename si decodam URL
             buffer[get_matches[1].rm_eo] = '\0';
-            // printf("BUFFER DUPA SET EOF: %s\n", buffer);
-            const char *url_encoded_file_name = buffer + get_matches[1].rm_so;
-            // printf("URL ENCODED: %s\n", url_encoded_file_name);
-            char *file_name = url_decode(url_encoded_file_name);
-            // printf("FILENAME: %s\n", file_name);
 
+            const char *url_encoded_file_name = buffer + get_matches[1].rm_so;
+
+            char *file_name = url_decode(url_encoded_file_name);
+            
             // Aflam extensia
             char file_ext[32];
             strcpy(file_ext, get_file_extension(file_name));
-            // printf("FILE EXTENSION: %s\n", file_ext);
-
-            // char *response = (char *)malloc(BUFFER_SIZE * 2 * sizeof(char));
-            // size_t response_len;
 
             if (strcmp(file_ext, "php") == 0)
             {
