@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
 
     fscanf(config_file, "%zu", &thread_number);
     fclose(config_file);
-    // printf("THREADS: %d\n", thread_number);
 
     // Initialize thread pool
     initialize_thread_pool(thread_number);
@@ -66,16 +65,12 @@ int main(int argc, char *argv[])
     server_addr.sin_addr.s_addr = INADDR_ANY;
     server_addr.sin_port = htons(8080);
 
-    // printf("Socket configured!\n");
-
     // Bind socket to port 8080.
     if (bind(server_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0)
     {
         perror("Bind fail!");
         exit(EXIT_FAILURE);
     }
-
-    // printf("Socket bind successful!\n");
 
     // Listen
     if (listen(server_fd, 10) < 0)
@@ -99,8 +94,6 @@ int main(int argc, char *argv[])
             perror("Accept failed!");
             continue;
         }
-
-        // printf("Client connection accepted!");
 
         total_clients++;
 
